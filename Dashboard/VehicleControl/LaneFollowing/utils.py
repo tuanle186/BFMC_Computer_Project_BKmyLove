@@ -40,6 +40,8 @@ def middle_lane_point(lines):
     for line in lines:
         x1, y1, x2, y2 = line[0]
         
+        if (max(y1,y2) <= 420):
+            continue
         if (x2-x1) == 0:
             continue
         

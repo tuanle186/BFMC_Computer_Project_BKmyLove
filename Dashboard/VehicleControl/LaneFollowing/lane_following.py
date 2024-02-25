@@ -14,22 +14,22 @@ with open("../../setup/PairingData.json", "r") as file:
 Ip = data["ip"]
 
 # PARKING FLAG
-PARKING = True
+PARKING = False
 
 # VID OR IMAGE
 ENABLE_VID = True
 DEBUG = True
 
 # SET OF VERTICES TO FORM ROI
-roi_vertices = [[(0, 480), (180 , 350), (500 , 350), (720, 480)]]
+roi_vertices = [[(0, 480), (180 , 300), (540 , 300), (720, 480)]]
 
 # TCP connection
 connect_established = False
 
 # PID controller parameters
 Kp = 0.5
-Ki = 0.0016 #0.001 or 0.008
-Kd = 0.1 #2 to 5
+Ki = 0 #0.001 or 0.008
+Kd = 0 #2 to 5
 setpoint = 0
 pid_controller = PIDController(Kp, Ki, Kd, setpoint)
 initial_deviation = 0
@@ -55,7 +55,6 @@ if __name__ == "__main__":
             # cap = cv2.VideoCapture("very_ok.mp4")
             url = "http://" + Ip + ":8000/stream.mjpg"
             cap = cv2.VideoCapture(url)
-
             while True:
                 _,src_img = cap.read() 
                 if src_img is None:
@@ -86,10 +85,11 @@ if __name__ == "__main__":
                 
                 deviation = x - 360
                 control_signal = pid_controller.update(deviation_angle)
+
                 try:
                     # print("control signal:",control_signal)
                     control_signal = "{:.1f}".format(control_signal)
-
+                    
                     if DEBUG:
                         # print("deviation:",deviation)
                         print("control signal:",control_signal)
