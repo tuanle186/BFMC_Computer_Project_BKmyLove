@@ -1,4 +1,4 @@
-# BFMC - Computer Project
+# BFMC - Computer Project - BKmyLove
 
 The project contains all the provided code that will run on the PC, and it's made of 4 parts:
 - Demo: The official RPi image starts automatically a communication. You will have to find out the IP of the RPi and insert it into threadRemoteHandlerPC, line 44, and then start the demo.py. From here you can see the messages that the car receives from the Nucleo, the images and, if the simulated devices are running, the messages that it gets from them.
