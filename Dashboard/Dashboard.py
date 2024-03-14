@@ -36,6 +36,8 @@ from multiprocessing import Pipe
 import json
 from GUI.GUI_start import threadGUI_start
 from CarCommunication.threadRemoteHandlerPC import threadRemoteHandlerPC
+# from VehicleControl.threadLaneFollowing import threadLaneFollowing``
+
 
 # Create pipes for communication
 piperecvFromUI, pipesendFromUI = Pipe(duplex=False)
