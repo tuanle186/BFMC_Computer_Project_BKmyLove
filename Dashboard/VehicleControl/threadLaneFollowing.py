@@ -88,7 +88,7 @@ class threadLaneFollowing(ThreadWithStop):
 
 
 if __name__ == "__main__":
-    Ip = "192.168.0.114"
+    Ip = "192.168.0.101"
 
     proc = threadLaneFollowing(Ip)
     proc.start()

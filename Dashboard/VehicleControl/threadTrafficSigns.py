@@ -18,7 +18,7 @@ class threadTrafficSigns(ThreadWithStop):
     def run(self):
         prev_rev = ""
         try:
-            for results in self.model.predict(source=self.source, stream=True, show=True, conf = 0.7):
+            for results in self.model.predict(source=self.source, stream=True, show=True, conf = 0.6):
                 if not self._running:
                     break
                 if (len(results.boxes.cls) == 0):
@@ -42,7 +42,7 @@ class threadTrafficSigns(ThreadWithStop):
 
 
 if __name__ == "__main__":
-    Ip = "192.168.0.114"
+    Ip = "192.168.0.101"
     proc = threadTrafficSigns(Ip)
     proc.start()
 
